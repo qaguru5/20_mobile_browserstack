@@ -16,7 +16,7 @@ public class BrowserStackAndroidSample {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 
-// Set your access credentials
+        // Set your access credentials
         caps.setCapability("browserstack.user", "YOUR_USERNAME");
         caps.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
 
