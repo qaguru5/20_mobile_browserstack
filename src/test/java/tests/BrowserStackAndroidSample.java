@@ -1,8 +1,10 @@
 package tests;
 
+import config.BrowserstackConfig;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,16 +14,18 @@ import java.net.URL;
 import java.util.List;
 
 public class BrowserStackAndroidSample {
+
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
+        BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", "YOUR_USERNAME");
-        caps.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
+        caps.setCapability("browserstack.user", config.browserstackUser());
+        caps.setCapability("browserstack.key", config.browserstackKey());
 
         // Set URL of the application under test
-        caps.setCapability("app", "bs://<app-id>");
+        caps.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
 
         // Specify device and os_version for testing
         caps.setCapability("device", "Google Pixel 3");
@@ -35,7 +39,7 @@ public class BrowserStackAndroidSample {
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(
+        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(
                 new URL("http://hub.browserstack.com/wd/hub"), caps);
 
 

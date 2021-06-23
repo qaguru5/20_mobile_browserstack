@@ -31,10 +31,11 @@ dependencies {
     testImplementation (
             "io.appium:java-client:7.5.1",
             "com.codeborne:selenide:$selenideVersion",
+            "org.aeonbits.owner:owner:1.0.12",
             /*
             "io.rest-assured:rest-assured:4.4.0", //client
             "io.qameta.allure:allure-rest-assured:2.14.0",
-            "org.aeonbits.owner:owner:1.0.12", //config
+             //config
             "org.assertj:assertj-core:3.19.0",
             "org.slf4j:slf4j-simple:1.7.30",
             "org.aspectj:aspectjweaver:1.9.6",
