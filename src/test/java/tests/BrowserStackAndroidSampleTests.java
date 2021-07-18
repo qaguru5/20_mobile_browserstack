@@ -1,7 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import drivers.BrowserstackAndroidDriver;
+import drivers.BrowserstackMobileDriver;
 import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,8 @@ public class BrowserStackAndroidSampleTests {
 
     @Test
     void sampleAppSearchTest() {
-        Configuration.browser = BrowserstackAndroidDriver.class.getName();
+       // System.setProperty("platform", "android");
+        Configuration.browser = BrowserstackMobileDriver.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
