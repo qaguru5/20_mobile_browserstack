@@ -4,9 +4,16 @@ import org.aeonbits.owner.Config;
 
 import java.net.URL;
 
-@Config.Sources("classpath:browserstack.properties")
+import static org.aeonbits.owner.Config.LoadType.MERGE;
+
+@Config.LoadPolicy(MERGE)
+@Config.Sources({"system:properties",
+                "classpath:config/browserstack.properties",
+                 "classpath:config/browserstack_${platform}.properties"})
 public interface BrowserstackConfig extends Config {
 
+    @DefaultValue("android")
+    String mobilePlatform();
     String browserstackUser();
     String browserstackKey();
     String androidAppUrl();
